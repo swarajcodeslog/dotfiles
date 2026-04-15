@@ -316,11 +316,6 @@ add_to_path "$BUN_INSTALL/bin"
 add_to_path "$HOMEBREW_PREFIX/opt/node@22/bin"
 add_to_path "$HOME/.spicetify"
 
-# Zoxide smart directory jumper (must be after PATH setup)
-if [[ -x "$HOME/.local/bin/zoxide" ]]; then
-    eval "$($HOME/.local/bin/zoxide init --cmd cd zsh)"
-fi
-
 # ============================================
 # BUN CONFIGURATION
 # ============================================
@@ -467,6 +462,11 @@ setopt INTERACTIVE_COMMENTS # Allow comments in interactive shell
 
 # Disable beep
 unsetopt BEEP
+
+# Zoxide — must be at end of file
+if [[ -x "$HOME/.local/bin/zoxide" ]]; then
+    eval "$($HOME/.local/bin/zoxide init --cmd cd zsh)"
+fi
 # bun completions
 [ -s "/home/swaraj-mohapatra/.bun/_bun" ] && source "/home/swaraj-mohapatra/.bun/_bun"
 
